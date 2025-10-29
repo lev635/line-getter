@@ -14,10 +14,18 @@
   "contributes": {
     "commands": [
       {
-        "command": "line.helloWorld",
-        "title": "Hello World"
+        "command": "line.copyFilePathWithLineNumber",
+        "title": "Copy Path with Line Number"
       }
-    ]
+    ],
+    "menus": {
+      "editor/lineNumber/context": [
+        {
+          "command": "line.copyFilePathWithLineNumber",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

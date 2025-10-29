@@ -1,15 +1,25 @@
 import * as assert from 'assert';
-
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
 import * as vscode from 'vscode';
-// import * as myExtension from '../../extension';
 
 suite('Extension Test Suite', () => {
 	vscode.window.showInformationMessage('Start all tests.');
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+	test('should copy file path and line number to clipboard', async () => {
+		const document = await vscode.workspace.openTextDocument({
+			content: 'line 1\nline 2\nline 3',
+			language: 'plaintext'
+		});
+		const editor = await vscode.window.showTextDocument(document);
+
+		const position = new vscode.Position(1, 0);
+		editor.selection = new vscode.Selection(position, position);
+
+		await vscode.commands.executeCommand('line.copyFilePathWithLineNumber');
+
+		const clipboardContent = await vscode.env.clipboard.readText();
+
+		const expectedContent = `${document.fileName}:2`;
+
+		assert.strictEqual(clipboardContent, expectedContent);
 	});
 });
