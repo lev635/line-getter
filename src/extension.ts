@@ -1,7 +1,7 @@
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-	const disposable = vscode.commands.registerCommand('line.copyFilePathWithLineNumber', async () => {
+	const disposable = vscode.commands.registerCommand('line-getter.copyFilePathWithLineNumber', async () => {
 		const editor = vscode.window.activeTextEditor;
 		if (editor) {
 			const position = editor.selection.active;

@@ -1,7 +1,7 @@
 {
-  "name": "line",
-  "displayName": "",
-  "description": "",
+  "name": "line-getter",
+  "displayName": "Line Getter",
+  "description": "Copy file path with line number",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.105.0"
@@ -14,14 +14,14 @@
   "contributes": {
     "commands": [
       {
-        "command": "line.copyFilePathWithLineNumber",
+        "command": "line-getter.copyFilePathWithLineNumber",
         "title": "Copy Path with Line Number"
       }
     ],
     "menus": {
       "editor/lineNumber/context": [
         {
-          "command": "line.copyFilePathWithLineNumber",
+          "command": "line-getter.copyFilePathWithLineNumber",
           "group": "navigation"
         }
       ]
