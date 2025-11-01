@@ -27,6 +27,10 @@
       ]
     }
   },
+  "repository": {
+    "url": "https://github.com/lev635/line-getter"
+  },
+  "publisher": "lev635",
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
